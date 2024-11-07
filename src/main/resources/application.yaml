@@ -1,0 +1,21 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+  application:
+    name: IDENTITY-SERVICE
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: password
+    driver-class-name: org.postgresql.Driver
+server:
+  port: 9090
+eureka:
+  client:
+    service-url:
+      defaultZone=http://localhost:8761/eureka:
+management:
+  zipkin:
+    tracing:
+      endpoint:  http://localhost:9411/api/v2/spans
