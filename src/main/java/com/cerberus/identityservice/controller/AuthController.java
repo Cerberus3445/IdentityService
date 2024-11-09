@@ -61,7 +61,8 @@ public class AuthController {
 
             return UserDto.builder()
                     .id(userCredential.getId())
-                    .name(userCredential.getName())
+                    .firstName(userCredential.getFirstName())
+                    .lastName(userCredential.getLastName())
                     .email(userCredential.getEmail())
                     .role(userCredential.getRole())
                     .password(userCredential.getPassword())
