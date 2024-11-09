@@ -1,5 +1,6 @@
 package com.cerberus.identityservice.dto;
 
+import com.cerberus.identityservice.domain.user.Role;
 import com.cerberus.identityservice.security.JwtResponse;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -13,18 +14,17 @@ import lombok.NoArgsConstructor;
 @Builder
 public class UserDto {
 
-    private int id;
+    private Long id;
 
-    private String name;
+    private String firstName;
+
+    private String lastName;
 
     private String email;
 
     private String password;
 
-    private String role;
-
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    private String environment;
+    private Role role;
 
     private JwtResponse jwtResponse;
 }

@@ -13,12 +13,15 @@ import lombok.NoArgsConstructor;
 public class UserCredential {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "firstName")
+    private String firstName;
+
+    @Column(name = "lastName")
+    private String lastName;
 
     @Column(name = "email")
     private String email;
@@ -27,6 +30,7 @@ public class UserCredential {
     private String password;
 
     @Column(name = "role")
-    private String role;
+    @Enumerated(value = EnumType.STRING)
+    private Role role;
 
 }
