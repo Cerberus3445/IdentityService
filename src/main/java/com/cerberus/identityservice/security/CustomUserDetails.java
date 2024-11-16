@@ -1,6 +1,6 @@
 package com.cerberus.identityservice.security;
 
-import com.cerberus.identityservice.domain.user.UserCredential;
+import com.cerberus.identityservice.model.UserCredential;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

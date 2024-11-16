@@ -1,6 +1,6 @@
 package com.cerberus.identityservice.repository;
 
-import com.cerberus.identityservice.domain.token.RefreshToken;
+import com.cerberus.identityservice.model.RefreshToken;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

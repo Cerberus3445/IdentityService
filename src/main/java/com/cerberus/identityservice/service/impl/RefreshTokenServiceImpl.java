@@ -1,6 +1,6 @@
 package com.cerberus.identityservice.service.impl;
 
-import com.cerberus.identityservice.domain.token.RefreshToken;
+import com.cerberus.identityservice.model.RefreshToken;
 import com.cerberus.identityservice.repository.RefreshTokenRepository;
 import com.cerberus.identityservice.repository.UserCredentialRepository;
 import com.cerberus.identityservice.service.RefreshTokenService;

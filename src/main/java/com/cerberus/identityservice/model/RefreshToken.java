@@ -1,6 +1,5 @@
-package com.cerberus.identityservice.domain.token;
+package com.cerberus.identityservice.model;
 
-import com.cerberus.identityservice.domain.user.UserCredential;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

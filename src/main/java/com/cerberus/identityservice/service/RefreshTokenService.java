@@ -1,6 +1,6 @@
 package com.cerberus.identityservice.service;
 
-import com.cerberus.identityservice.domain.token.RefreshToken;
+import com.cerberus.identityservice.model.RefreshToken;
 
 import java.util.Optional;
 
