@@ -1,4 +1,4 @@
-package com.cerberus.identityservice.domain.user;
+package com.cerberus.identityservice.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

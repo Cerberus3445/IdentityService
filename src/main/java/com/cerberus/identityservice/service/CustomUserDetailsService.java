@@ -1,6 +1,6 @@
 package com.cerberus.identityservice.service;
 
-import com.cerberus.identityservice.domain.user.UserCredential;
+import com.cerberus.identityservice.model.UserCredential;
 import com.cerberus.identityservice.repository.UserCredentialRepository;
 import com.cerberus.identityservice.security.CustomUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.cerberus.identityservice.service.impl;
 
-import com.cerberus.identityservice.domain.user.UserCredential;
+import com.cerberus.identityservice.model.UserCredential;
 import com.cerberus.identityservice.repository.UserCredentialRepository;
 import com.cerberus.identityservice.service.AuthService;
 import com.cerberus.identityservice.service.JwtService;

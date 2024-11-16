@@ -1,6 +1,6 @@
 package com.cerberus.identityservice.repository;
 
-import com.cerberus.identityservice.domain.user.UserCredential;
+import com.cerberus.identityservice.model.UserCredential;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

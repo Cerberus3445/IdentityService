@@ -1,7 +1,8 @@
 package com.cerberus.identityservice.controller;
 
-import com.cerberus.identityservice.domain.token.RefreshToken;
-import com.cerberus.identityservice.domain.user.UserCredential;
+import com.cerberus.identityservice.exception.UserValidationException;
+import com.cerberus.identityservice.model.RefreshToken;
+import com.cerberus.identityservice.model.UserCredential;
 import com.cerberus.identityservice.dto.UserDto;
 import com.cerberus.identityservice.mapper.EntityDtoMapper;
 import com.cerberus.identityservice.security.AuthRequest;
@@ -11,10 +12,12 @@ import com.cerberus.identityservice.service.AuthService;
 import com.cerberus.identityservice.service.JwtService;
 import com.cerberus.identityservice.service.RefreshTokenService;
 import com.cerberus.identityservice.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -37,10 +40,15 @@ public class AuthController {
     private EntityDtoMapper mapper;
 
     @Autowired
-    private AuthenticationManager authenticationManager; //токен получают только те, кто есть в бд
+    private AuthenticationManager authenticationManager;
 
     @PostMapping("/register")
-    public String addNewUser(@RequestBody UserDto userDto) {
+    public String addNewUser(@RequestBody @Valid UserDto userDto, BindingResult bindingResult) {
+        if (bindingResult.hasFieldErrors()) {
+            String erros = bindingResult.getFieldErrors().stream().map(fieldError -> fieldError.getDefaultMessage().toString())
+                    .toList().toString();
+            throw new UserValidationException(erros);
+        }
 
         UserCredential user = this.mapper.toEntity(userDto);
 
@@ -80,7 +88,7 @@ public class AuthController {
     }
 
     @PostMapping("/refreshToken")
-    public JwtResponse refreshToken(@RequestBody RefreshTokenRequest refreshTokenRequest){
+    public JwtResponse refreshToken(@RequestBody RefreshTokenRequest refreshTokenRequest) {
         return this.refreshTokenService.findByToken(refreshTokenRequest.getToken())
                 .map(this.refreshTokenService::verifyExpiration)
                 .map(RefreshToken::getUserCredential)
