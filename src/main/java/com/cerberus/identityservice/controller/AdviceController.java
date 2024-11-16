@@ -14,7 +14,7 @@ public class AdviceController {
         ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(
                 HttpStatus.BAD_REQUEST, exception.getMessage()
         );
-        problemDetail.setTitle("Ошибка валидации");
+        problemDetail.setTitle("Ошибка валидации пользователя");
         return problemDetail;
     }
 }
